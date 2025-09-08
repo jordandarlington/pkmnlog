@@ -20,7 +20,11 @@ def new_playthrough():
     if request.method == 'POST':
         name = request.form['name']
         game = request.form['game']
-        start_date = request.form.get('start_date', date.today())
+        start_date_str = request.form.get('start_date', date.today())
+        if start_date_str:
+            start_date = date.fromisoformat(start_date_str)
+        else:
+            start_date = date.today()
         playthrough = Playthrough(name=name, game=game, start_date=start_date)
         db.session.add(playthrough)
         db.session.commit()
