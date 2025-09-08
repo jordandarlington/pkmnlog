@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">{{ playthrough.name }} ({{ playthrough.game }})</h1>
+<p>Started on {{ playthrough.start_date }}</p>
+<a href="{{ url_for('new_entry', playthrough_id=playthrough.id) }}" class="button is-primary">New Entry</a>
+<hr>
+{% for entry in entries %}
+<div class="box">
+    <h2 class="subtitle">{{ entry.title }}</h2>
+    <p>{{ entry.content }}</p>
+    <small>{{ entry.timestamp }} - {{ entry.type or "general" }}</small>
+</div>
+{% else %}
+<p>No entries yet.</p>
+{% endfor %}
+{% endblock %}

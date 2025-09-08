@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">Playthroughs</h1>
+<a href="{{ url_for('new_playthrough') }}" class="button is-primary">New Playthrough</a>
+<hr>
+<ul>
+    {% for playthrough in playthroughs %}
+    <li>
+        <a href="{{ url_for('view_playthrough', playthrough_id=playthrough.id) }}">
+            {{ playthrough.name }} ({{ playthrough.game }}) - started {{ playthrough.start_date }}
+        </a>
+    </li>
+    {% else %}
+    <li>No playthroughs yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

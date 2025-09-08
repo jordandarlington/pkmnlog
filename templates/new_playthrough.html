@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">New Playthrough</h1>
+<form method="POST">
+    <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+            <input class="input" type="text" name="name" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Game</label>
+        <div class="control">
+            <input class="input" type="text" name="game" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Start Date</label>
+        <div class="control">
+            <input class="input" type="date" name="start_date" required>
+        </div>
+    </div>
+    <div class="control">
+        <button class="button is-primary" type="submit">Create</button>
+    </div>
+</form>
+{% endblock %}
