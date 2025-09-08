@@ -45,3 +45,6 @@ def new_entry(playthrough_id):
         db.session.commit()
         return redirect(url_for('view_playthrough', playthrough_id=playthrough.id))
     return render_template('new_entry.html', playthrough=playthrough)
+
+if __name__ == '__main__':
+    app.run(debug=True)
